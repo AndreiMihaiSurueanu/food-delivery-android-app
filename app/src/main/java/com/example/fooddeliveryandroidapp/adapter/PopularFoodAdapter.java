@@ -1,6 +1,7 @@
 package com.example.fooddeliveryandroidapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fooddeliveryandroidapp.DetailsActivity;
 import com.example.fooddeliveryandroidapp.R;
 import com.example.fooddeliveryandroidapp.model.PopularFood;
 
@@ -41,6 +43,13 @@ public class PopularFoodAdapter extends RecyclerView.Adapter<PopularFoodAdapter.
         holder.name.setText(popularFoodList.get(position).getName());
         holder.price.setText(popularFoodList.get(position).getPrice());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, DetailsActivity.class);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
